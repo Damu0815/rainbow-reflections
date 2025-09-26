@@ -50,9 +50,12 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="gradient-primary hover:scale-105 transition-bounce text-white font-semibold px-8 py-6 text-lg glow-primary"
+                asChild
               >
-                <Mail className="mr-2 h-5 w-5" />
-                Get In Touch
+                <a href="mailto:damu41437@gmail.com">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Get In Touch
+                </a>
               </Button>
               <Button 
                 variant="outline" 
@@ -67,7 +70,7 @@ const Hero = () => {
 
             <div className="flex gap-6 justify-center lg:justify-start">
               <a 
-                href="https://github.com" 
+                href="https://github.com/damodaran-ar" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-card/20 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-110 transition-bounce text-foreground hover:text-primary"
@@ -75,7 +78,7 @@ const Hero = () => {
                 <Github className="h-6 w-6" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/damodaran-ar" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-card/20 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-110 transition-bounce text-foreground hover:text-primary"

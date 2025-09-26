@@ -12,16 +12,40 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    // Simulate form submission (in a real app, you'd send to your backend)
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoLink = `mailto:damu41437@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      toast({
+        title: "Message prepared!",
+        description: "Your email client will open with the message ready to send.",
+      });
+      
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -84,10 +108,11 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg"
-                  className="w-full gradient-primary hover:scale-105 transition-bounce text-white font-semibold py-6"
+                  disabled={isSubmitting}
+                  className="w-full gradient-primary hover:scale-105 transition-bounce text-white font-semibold py-6 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="mr-2 h-5 w-5" />
-                  Send Message
+                  {isSubmitting ? "Preparing..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
@@ -162,7 +187,7 @@ const Contact = () => {
                     className="flex-1 gradient-primary hover:scale-105 transition-bounce text-white"
                     asChild
                   >
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/damodaran-ar" target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-5 w-5" />
                       GitHub
                     </a>
@@ -172,7 +197,7 @@ const Contact = () => {
                     className="flex-1 gradient-secondary hover:scale-105 transition-bounce text-white"
                     asChild
                   >
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://linkedin.com/in/damodaran-ar" target="_blank" rel="noopener noreferrer">
                       <Linkedin className="mr-2 h-5 w-5" />
                       LinkedIn
                     </a>

@@ -100,30 +100,30 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Additional Projects Section */}
-        <div className="mt-16 text-center">
-          <Card className="bg-card/30 backdrop-blur-sm border-border/50 max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <h3 className="font-heading text-2xl font-bold mb-4">
-                Want to see more?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                I'm constantly working on new projects and exploring innovative technologies. 
-                Check out my GitHub for the latest updates and contributions.
-              </p>
-              <Button 
-                size="lg"
-                className="gradient-secondary hover:scale-105 transition-bounce text-white px-8"
-                asChild
-              >
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-5 w-5" />
-                  View All Projects
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+          {/* Additional Projects Section */}
+          <div className="mt-16 text-center">
+            <Card className="bg-card/30 backdrop-blur-sm border-border/50 max-w-2xl mx-auto">
+              <CardContent className="p-8">
+                <h3 className="font-heading text-2xl font-bold mb-4">
+                  Want to see more?
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  I'm constantly working on new projects and exploring innovative technologies. 
+                  Check out my GitHub for the latest updates and contributions.
+                </p>
+                <Button 
+                  size="lg"
+                  className="gradient-secondary hover:scale-105 transition-bounce text-white px-8"
+                  asChild
+                >
+                  <a href="https://github.com/damodaran-ar" target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-5 w-5" />
+                    View All Projects
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
       </div>
     </section>
   );
